@@ -1,10 +1,15 @@
 #include <unistd.h>
 
+<<<<<<< HEAD
 void	ft_putchar(int c)
+=======
+void	ft_putchar(char c)
+>>>>>>> 22caa6b96338ea968379eb7341364b50a3b95f66
 {
 	write(1, &c, 1);
 }
 
+<<<<<<< HEAD
 void	ft_cal(int nb)
 {
 	if (nb >= 10)
@@ -43,3 +48,21 @@ int	main(void)
 	return (0);
 }
 
+=======
+void	ft_putnbr(int nb)
+{
+	if (nb >= -2147483648 && nb <= 2147483647)
+	{
+		while (nb / 10 + 48
+
+		ft_putchar(nb / 10 + 48);
+		ft_putchar(nb % 10 + 48);
+	}
+	else
+	{
+		return ;
+	}	
+}
+
+int	main(void)
+>>>>>>> 22caa6b96338ea968379eb7341364b50a3b95f66
