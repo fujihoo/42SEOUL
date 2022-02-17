@@ -1,49 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jihoopar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/17 09:42:08 by jihoopar          #+#    #+#             */
+/*   Updated: 2022/02/17 11:32:17 by jihoopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void	ft_putint(int c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	write_func(int a)
-{
-	if(a >= 10)
-	{
-		write_func(a/10);
-	}
-
-	else
-	{
-		ft_putint(a % 10 + 48);
-	}
-}
-
 void	ft_putnbr(int nb)
 {
-	if(nb == -2147483648)
+	if (nb == -2147483648)
 	{
 		write(1, "-2147483648", 11);
 	}
-	else if(nb > -2147483648 && nb < 0)
+	else if (nb < 0)
 	{
-		nb = nb * (-1);
-		write(1, "-", 1);
-		write_func(nb);
+		ft_putchar('-');
+		ft_putnbr(-nb);
 	}
 	else
 	{
-		write_func(nb);
+		if (nb >= 10)
+			ft_putnbr(nb / 10);
+		ft_putchar(nb % 10 + '0');
 	}
 }
-
-int	main(void)
-{
-	ft_putnbr(-2147483648);
-	ft_putnbr(2147483637);
-	ft_putnbr(0);
-	ft_putnbr(42);
-	return (0);
-}
-
-
-
