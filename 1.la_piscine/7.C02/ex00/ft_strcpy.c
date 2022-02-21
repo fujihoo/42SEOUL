@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   jihoopar.c                                         :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihoopar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/12 15:51:09 by jihoopar          #+#    #+#             */
-/*   Updated: 2022/02/12 18:52:13 by jihoopar         ###   ########.fr       */
+/*   Created: 2022/02/21 12:35:32 by jihoopar          #+#    #+#             */
+/*   Updated: 2022/02/21 12:45:16 by jihoopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void arr_func(void)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int row;
-	int col;
+	char	*temp;
 
-	row = 4;
-	col = 4;
-	int **m = malloc(sizeof(int *) * row);
-	int i;
-
-
-	
-	i = 0;
-	while( i < row )
+	temp = dest;
+	while (*src)
 	{
-		int j;
-
-		j = 0;
-		while( j < col)
-
+		*(dest++) = *(src++);
+	}
+	*dest = 0;
+	return (temp);
+}

@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   jihoopar.c                                         :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihoopar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/12 15:51:09 by jihoopar          #+#    #+#             */
-/*   Updated: 2022/02/12 18:52:13 by jihoopar         ###   ########.fr       */
+/*   Created: 2022/02/21 12:44:08 by jihoopar          #+#    #+#             */
+/*   Updated: 2022/02/21 19:21:49 by jihoopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void arr_func(void)
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
 {
-	int row;
-	int col;
-
-	row = 4;
-	col = 4;
-	int **m = malloc(sizeof(int *) * row);
+	int *temp;
 	int i;
 
-
-	
+	temp = dest;
 	i = 0;
-	while( i < row )
+	while (i < n && *src)
 	{
-		int j;
-
-		j = 0;
-		while( j < col)
-
+		*(dest++) = *(src++);
+		i++;
+	}
+	while (i < n)
+	{		
+		*dest = 0;
+		i++;
+	}
+	return (temp);
+}
