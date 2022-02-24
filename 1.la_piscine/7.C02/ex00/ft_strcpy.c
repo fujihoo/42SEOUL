@@ -6,7 +6,7 @@
 /*   By: jihoopar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 12:35:32 by jihoopar          #+#    #+#             */
-/*   Updated: 2022/02/21 12:45:16 by jihoopar         ###   ########.fr       */
+/*   Updated: 2022/02/23 20:17:39 by jihoopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ char	*ft_strcpy(char *dest, char *src)
 	temp = dest;
 	while (*src)
 	{
-		*(dest++) = *(src++);
+		dest = src;
+		dest++;
+		src++;
 	}
 	*dest = 0;
 	return (temp);

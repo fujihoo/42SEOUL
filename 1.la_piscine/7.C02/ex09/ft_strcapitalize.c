@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihoopar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 12:44:08 by jihoopar          #+#    #+#             */
-/*   Updated: 2022/02/23 21:37:22 by jihoopar         ###   ########.fr       */
+/*   Created: 2022/02/23 13:00:26 by jihoopar          #+#    #+#             */
+/*   Updated: 2022/02/23 20:28:54 by jihoopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strcapitalize(char *str)
 {
-	char			*temp;
-	unsigned int	i;
+	int	i;
 
-	temp = dest;
-	i = 0;
-	while (i < n && *src)
+	if (str[0] >= 'a' && str[0] <= 'z')
+		str[0] -= 32;
+	i = 1;
+	while (str[i])
 	{
-		dest = src;
-		dest++;
-		src++;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+		if (str[i] >= 'a' && str[i] <= 'z')
+			if (!(str[i - 1] >= 'a' && str[i - 1] <= 'z'))
+				if (!(str[i - 1] >= '0' && str[i - 1] <= '9'))
+					if (!(str[i - 1] >= 'A' && str[i - 1] <= 'Z'))
+						str[i] -= 32;
 		i++;
 	}
-	while (i < n)
-	{		
-		*dest = 0;
-		i++;
-	}
-	return (temp);
+	return (str);
 }

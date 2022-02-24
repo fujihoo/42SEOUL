@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihoopar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 12:44:08 by jihoopar          #+#    #+#             */
-/*   Updated: 2022/02/23 21:37:22 by jihoopar         ###   ########.fr       */
+/*   Created: 2022/02/22 16:39:09 by jihoopar          #+#    #+#             */
+/*   Updated: 2022/02/22 17:06:31 by jihoopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_str_is_lowercase(char *str)
 {
-	char			*temp;
-	unsigned int	i;
+	int	check;
+	int	i;
 
-	temp = dest;
+	check = 1;
 	i = 0;
-	while (i < n && *src)
+	while (str[i])
 	{
-		dest = src;
-		dest++;
-		src++;
+		if (str[i] < 'a' || str[i] > 'z')
+			check = 0;
 		i++;
 	}
-	while (i < n)
-	{		
-		*dest = 0;
-		i++;
-	}
-	return (temp);
+	return (check);
 }

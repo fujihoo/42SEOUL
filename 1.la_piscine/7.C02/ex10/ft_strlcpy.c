@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihoopar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 12:44:08 by jihoopar          #+#    #+#             */
-/*   Updated: 2022/02/23 21:37:22 by jihoopar         ###   ########.fr       */
+/*   Created: 2022/02/23 16:15:02 by jihoopar          #+#    #+#             */
+/*   Updated: 2022/02/23 20:37:14 by jihoopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+unsigned int	ft_strlen(char *str)
 {
-	char			*temp;
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+{
 	unsigned int	i;
 
-	temp = dest;
+	if (size == 0)
+		return (ft_strlen(src));
 	i = 0;
-	while (i < n && *src)
+	while (src[i] && i + 1 < size)
 	{
-		dest = src;
-		dest++;
-		src++;
+		dest[i] = src[i];
 		i++;
 	}
-	while (i < n)
-	{		
-		*dest = 0;
-		i++;
-	}
-	return (temp);
+	dest[i] = 0;
+	return (ft_strlen(src));
 }
